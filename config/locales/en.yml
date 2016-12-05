@@ -44,3 +44,17 @@ en:
     help:
       help: "Help"
       help_statement: "If you have any problem, please call 04-123-456"
+  admin:
+    categories:
+      create:
+        create_category_success: "Create category successfully"
+        create_category_fail: "Fail to create category"
+      index:
+        add_category: "Add category"
+        category_parent: "Category parent"
+        name: "Name"
+        description: "Description"
+        add: "Add"
+        cancel: "Cancel"
+      parent_category:
+        none: "None"

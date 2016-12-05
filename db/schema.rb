@@ -15,11 +15,14 @@ ActiveRecord::Schema.define(version: 20161205063000) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "depth",       default: 0, null: false
+    t.integer  "lft",                     null: false
+    t.integer  "rgt",                     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["lft"], name: "index_categories_on_lft"
     t.index ["name"], name: "index_categories_on_name", unique: true
+    t.index ["rgt"], name: "index_categories_on_rgt"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -81,6 +84,7 @@ ActiveRecord::Schema.define(version: 20161205063000) do
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["id", "category_id"], name: "index_products_on_id_and_category_id", unique: true
+    t.index ["name"], name: "index_products_on_name", unique: true
   end
 
   create_table "promotions", force: :cascade do |t|
