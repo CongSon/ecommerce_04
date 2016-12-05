@@ -5,6 +5,8 @@ gem "rails", "~> 5.0.0", ">= 5.0.0.1"
 
 gem "sqlite3"
 
+gem "bootstrap-sass", "3.3.6"
+
 gem "puma", "~> 3.0"
 
 gem "sass-rails", "~> 5.0"
