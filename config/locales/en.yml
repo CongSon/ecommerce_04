@@ -22,3 +22,25 @@
 en:
   hello: "Hello world"
   ecommerce: "Ecommerce_04"
+  title: "Framgia Ecommerce_04 System"
+  layouts:
+    footer:
+      framgia: "Ecommerce_04 Framgia Vietnam"
+    header:
+      app_name: "Ecommerce_04"
+      home: "Home"
+      help: "Help"
+      log_in: "Log in"
+  static_pages:
+    home:
+      welcome_statement: "Welcome to Framgia Ecommerce_04 System!"
+      sign_up: "Sign up now!"
+    about:
+      about: "About"
+      about_statement: "This is Ecommerce_04 System of Framgia Vietnam"
+    contact:
+      contact: "Contact"
+      contact_statement: "Please contact with me follow the email: admin@framgia.com"
+    help:
+      help: "Help"
+      help_statement: "If you have any problem, please call 04-123-456"
