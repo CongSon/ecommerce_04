@@ -31,6 +31,9 @@ en:
       home: "Home"
       help: "Help"
       log_in: "Log in"
+      account: "Account"
+      settings: "Settings"
+      log_out: "Log out"
   static_pages:
     home:
       welcome_statement: "Welcome to Framgia Ecommerce_04 System!"
@@ -44,6 +47,24 @@ en:
     help:
       help: "Help"
       help_statement: "If you have any problem, please call 04-123-456"
+  devise:
+    registrations:
+      edit:
+        need_current_password: "we need your current password to confirm your changes"
+        leave_blank: "leave blank if you don't want to change it"
+        characters_min: "characters minimum"
+        update: "Update"
+        edit: "Edit "
+      new:
+        sign_up: Sign up
+        characters_min: "characters minimum"
+    sessions:
+      new:
+        log_in: "Log in"
+    shared:
+      link:
+        log_in: "Log in"
+        sign_up: "Sign up"
   admin:
     categories:
       create:

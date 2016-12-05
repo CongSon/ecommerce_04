@@ -10,19 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205063000) do
+ActiveRecord::Schema.define(version: 20161205064344) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "depth",       default: 0, null: false
-    t.integer  "lft",                     null: false
-    t.integer  "rgt",                     null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.index ["lft"], name: "index_categories_on_lft"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
-    t.index ["rgt"], name: "index_categories_on_rgt"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -133,17 +130,24 @@ ActiveRecord::Schema.define(version: 20161205063000) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "phone"
     t.boolean  "gender"
     t.string   "avatar"
     t.integer  "role"
-    t.string   "password_digest"
-    t.string   "remember_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
