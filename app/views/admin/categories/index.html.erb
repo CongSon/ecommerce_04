@@ -1,0 +1,42 @@
+<div class="col-md-12">
+  <%= link_to t(".add_category"), "#category-modal", data: {toggle: "modal"},
+    class: "btn btn-primary btn-add-category" %>
+</div>
+<%= form_tag admin_categories_path , method: :post,
+  id: "add-category-form" do %>
+  <div id="category-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><%= t".add_category" %></h3>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div>
+              <label><%= t ".category_parent" %></label>
+              <div>
+                <%= render "parent_category" %>
+              </div>
+            </div>
+            <div>
+              <label><%= t ".name" %></label>
+              <%= text_field_tag :name, params[:name], class: "form-control" %>
+            </div>
+            <div>
+              <label><%= t ".description" %></label>
+              <%= text_area_tag :description, params[:description],
+                class: "form-control" %>
+            </div>
+          </div>
+          <div class="modal-footer">
+          <%= submit_tag t(".add"), class: "btn btn-primary"%>
+            <button type="submit" class="btn btn-danger"
+              data-dismiss="modal">
+              <%= t ".cancel" %>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,3 @@
+<%= select_tag :parent_id, options_for_select(@categories.collect {
+  |cat| ["#{'-' * cat.depth} #{cat.name}", cat.id]}, params[:parent_id]),
+  {class: "form-control", id: "parent_category", include_blank: t(".none")} %>
