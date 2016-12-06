@@ -1,0 +1,5 @@
+<div>
+ <% @product_carts.each do |product_cart, quantity| %>
+  <%= render "cart/cart_row", product: product_cart, quantity: quantity %>
+<% end %>
+</div>

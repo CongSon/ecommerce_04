@@ -27,6 +27,11 @@
             <li><%= link_to t(".sign_up"), new_user_registration_path %></li>
           </ul>
         </li>
+        <li>
+          <a href="/cart" class="fa fa-cart-arrow-down">
+            (<%= session[:cart].present? ? session[:cart].size : 0 %>)
+          </a>
+        </li>
       <% end %>
     </ul>
   </div>

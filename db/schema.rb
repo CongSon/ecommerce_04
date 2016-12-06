@@ -71,14 +71,14 @@ ActiveRecord::Schema.define(version: 20161205064344) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.text     "desciption"
+    t.text     "description", default: ""
     t.float    "price"
     t.string   "image"
     t.integer  "quantity"
     t.float    "rating"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["id", "category_id"], name: "index_products_on_id_and_category_id", unique: true
     t.index ["name"], name: "index_products_on_name", unique: true
