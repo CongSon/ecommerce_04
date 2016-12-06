@@ -1,5 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :load_all_categories
+  layout "admin"
+
   def index
   end
 

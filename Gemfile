@@ -5,6 +5,8 @@ gem "rails", "~> 5.0.0", ">= 5.0.0.1"
 
 gem "sqlite3"
 
+gem "font-awesome-rails"
+gem "i18n-js", ">= 3.0.0.rc11"
 gem "bootstrap-sass", "3.3.6"
 
 gem "devise"
