@@ -1,7 +1,9 @@
-<div class="col-md-12">
-  <%= link_to "", "#product-modal", data: {toggle: "modal"},
-    class: "btn btn-primary btn-add-product fa fa-plus" %>
-</div>
+<div class="row">
+  <h3 class="text-center head"><%= t".list-product"%></h3>
+  <div class="col-md-12">
+    <%= link_to "", "#product-modal", data: {toggle: "modal"},
+      class: "btn btn-primary btn-add-product fa fa-plus" %>
+  </div>
   <%= form_for [:admin, @product], url: admin_products_path, method: :post do |f| %>
   <div id="product-modal" class="modal fade">
     <div class="modal-dialog">
@@ -65,4 +67,24 @@
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+  <div class="table-responsive table-condensed col-sm-12">
+    <table class="responstable" id="list_category">
+      <tr>
+        <th><%= t ".number" %></th>
+        <th><%= t ".category" %></th>
+        <th><%= t ".product_name" %></th>
+        <th><%= t ".price" %></th>
+        <th><%= t ".quantity" %></th>
+        <th><%= t ".image" %></th>
+        <th><%= t ".info" %></th>
+        <th><%= t ".edit" %></th>
+        <th><%= t ".delete" %></th>
+      </tr>
+      <tbody>
+        <%= render @products %>
+      </tbody>
+    </table>
+    <%= paginate @products%>
+  </div>
+</div>
