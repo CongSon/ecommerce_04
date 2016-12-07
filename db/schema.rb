@@ -15,11 +15,14 @@ ActiveRecord::Schema.define(version: 20161205064344) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "depth",       default: 0, null: false
+    t.integer  "lft",                     null: false
+    t.integer  "rgt",                     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["lft"], name: "index_categories_on_lft"
     t.index ["name"], name: "index_categories_on_name", unique: true
+    t.index ["rgt"], name: "index_categories_on_rgt"
   end
 
   create_table "comments", force: :cascade do |t|

@@ -23,6 +23,8 @@ en:
   hello: "Hello world"
   ecommerce: "Ecommerce_04"
   title: "Framgia Ecommerce_04 System"
+  specification_not_more_4: "Specification not more 4"
+  specification_not_less_2: "Specification not less 2"
   layouts:
     footer:
       framgia: "Ecommerce_04 Framgia Vietnam"
@@ -79,3 +81,15 @@ en:
         cancel: "Cancel"
       parent_category:
         none: "None"
+    products:
+      index:
+        add: "Add"
+      create:
+        category: "Category"
+        name: "Name"
+        description: "Description"
+        cancel: "Cancel"
+        quantity: "Quantity"
+        price: "Price"
+        create_product_success: "Create product success"
+        create_product_fail: "Create product fail"

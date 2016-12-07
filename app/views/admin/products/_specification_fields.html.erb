@@ -1,0 +1,16 @@
+<div class="form-group specification_field col-sm-12">
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :feature_type %>
+      <%= f.text_field :feature_type, class: "form-control content-answer", required: true %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.label :feature_value %>
+      <%= f.text_field :feature_value, class: "form-control content-answer", required: true %>
+    </div>
+    <div class="col-sm-2">
+    <br>
+      <%= link_to_remove_fields "", f %>
+    </div>
+  </div>
+</div>
