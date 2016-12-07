@@ -4,6 +4,8 @@ class Admin::ProductsController < ApplicationController
 
   def index
     @product = Product.new
+    @products = Product.list_product.in_category(params[:category_id])
+      .page params[:page]
   end
 
   def create

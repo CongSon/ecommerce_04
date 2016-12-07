@@ -1,0 +1,31 @@
+<tr class="product-row">
+  <td class="product_id col-sm-1">
+    <%= index_for product_counter, @products.current_page,
+      Settings.product.per_page %>
+  </td>
+  <td class="category_id col-sm-2"><%= product.category.name  %></td>
+  <td class="product_name col-sm-2"><%= product.name %></td>
+  <td class="product_name col-sm-2"><%= product.price %></td>
+  <td class="product_name col-sm-1">
+    <% if product.quantity == 0 %>
+      <%= t".any_left"%>
+    <% else %>
+      <%= product.quantity %>
+    <% end %>
+  </td>
+  <td class="product_name col-sm-2">
+    <%= image_tag product.image? ?
+      product.image.url : Settings.product, class: "img-responsive" %>
+  </td>
+  <td class="action col-sm-1">
+    <%= link_to "", admin_product_path(product),
+      class: "btn btn-info fa fa-info-circle" %>
+  <td class="col-sm-1">
+    <%= link_to "",
+      edit_admin_product_path(product), class: "btn btn-warning fa fa-pencil" %>
+  </td>
+  <td class="col-sm-1">
+    <%= link_to "", admin_product_path(product), method: :delete,
+      data: {confirm: t(".confirm")}, class: "btn btn-danger fa fa-trash" %>
+  </td>
+</tr>

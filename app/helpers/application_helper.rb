@@ -4,6 +4,10 @@ module ApplicationHelper
     page_title.empty? ? base_title : page_title + " | " + base_title
   end
 
+  def index_for counter, page, per_page
+    (page - 1) * per_page + counter + 1
+  end
+
   def link_to_remove_fields name, f
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)",
       class: "btn fa fa-trash btn-danger")
