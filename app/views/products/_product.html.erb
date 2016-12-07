@@ -1,0 +1,17 @@
+<div class="well">
+  <div class="row">
+    <div class="col-xs-8">
+      <h4><%= product.name %></small></h4>
+    </div>
+    <div class="col-xs-4">
+      <h4 class="text-right"><%= t ".price" %>: <span style="color: green">
+        <%= number_to_currency product.price %></span></h4>
+        <div class="input-group">
+          <div class="input-group-btn">
+            <%= link_to t(".add_to_cart"), "/cart/#{product.id}",
+              method: :post, class: "btn btn-primary" %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

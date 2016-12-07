@@ -32,4 +32,14 @@ module ApplicationHelper
     content_tag :a, name,
       html_options.merge(href: href, onclick: onclick)
   end
+
+  def calc_price_of_order_detail product, quantity
+    price = get_real_product_price product, Time.now
+    price * quantity.to_i
+  end
+
+  def get_real_product_price product, time
+    pro = Promotion.is_sale_of(product.id, time).first
+    pro.nil? ? product.price : (product.price * pro.sale)
+  end
 end

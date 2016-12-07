@@ -15,3 +15,32 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+$(document).on('turbolinks:load', function () {
+
+  var data = {};
+    $('.cart-quantity').each(function(){
+      $(this).bind('keyup change click', function (e) {
+        event.preventDefault();
+        var id = $(this).attr('data');
+        var quantity = parseInt($('#quantity-' + id).val(), 10);
+        var price = parseFloat($('#price-' + id).text().trim());
+        $('#total-' + id).text(quantity * price);
+        data[id] = quantity;
+      });
+    });
+
+  $('#update-cart').click(function(){
+    if(Object.keys(data).length != 0){
+      $.ajax({
+        url: '/cart/',
+        data: {
+          cart: data
+        },
+        method: 'PATCH',
+        success: function(result){
+        }
+      });
+    }
+  });
+});

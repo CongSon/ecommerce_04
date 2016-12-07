@@ -9,8 +9,8 @@ class Product < ApplicationRecord
   paginates_per 10
   validates :name, presence: true, length: {maximum: 50},
     uniqueness: {case_sensitive: false}
-  validates :price, presence: true, length: {minimum: 10}
-  validates :quantity, presence: true, length: {minimum: 6}
+  validates :price, presence: true, numericality: true
+  validates :quantity, presence: true, numericality: { only_integer: true }
   mount_uploader :image, ImageUploader
   accepts_nested_attributes_for :specifications, allow_destroy: true,
     reject_if: proc{|attributes| attributes["feature_value"].blank?}

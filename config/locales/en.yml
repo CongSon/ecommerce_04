@@ -93,3 +93,36 @@ en:
         price: "Price"
         create_product_success: "Create product success"
         create_product_fail: "Create product fail"
+  orders:
+    create:
+      orders_create_successfully: "Your order is created successfully"
+      orders_create_failed: "Fail to create orders"
+    new:
+      your_cart: "Your cart"
+      name: "Name"
+      description: "Description"
+      price: "Price"
+      image: "Image"
+      quantity: "Quantity"
+      amount: "Amount"
+      customer_info: "Customer Information"
+      checkout: "Checkout"
+      total: "Total:"
+  cart:
+    index:
+      your_cart: "Your cart"
+      name: "Name"
+      description: "Description"
+      price: "Price"
+      image: "Image"
+      quantity: "Quantity"
+      amount: "Amount"
+      remove: "Remove"
+      next: "Next"
+      new_cart: "New cart"
+  products:
+    index:
+      product_for_sale: "Products for sale"
+    product:
+      price: "price"
+      add_to_cart: "Add to cart"
