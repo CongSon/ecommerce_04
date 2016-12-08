@@ -1,17 +1,29 @@
-<div class="well">
-  <div class="row">
-    <div class="col-xs-8">
-      <h4><%= product.name %></small></h4>
-    </div>
-    <div class="col-xs-4">
-      <h4 class="text-right"><%= t ".price" %>: <span style="color: green">
-        <%= number_to_currency product.price %></span></h4>
+<div class="col-sm-3">
+  <div class="product-item">
+    <div class="thumbnail">
+      <div class="image">
+        <%= image_tag product.image? ?
+          product.image.url : Settings.product, class: "img-responsive" %>
+      </div>
+      <div class="caption">
+        <p class="product_name text-center"><%= product.name %></p>
+        <p class="price text-center">
+          <span style="color: green">
+            <%= number_to_currency product.price %>
+          </span>
+        </p>
+        <hr>
+        <p class="description text-center">
+           <%= product.description %>
+        </p>
         <div class="input-group">
+          <a href="#" class="btn btn-sm btn-default"><%= t ".show" %></a>
           <div class="input-group-btn">
             <%= link_to t(".add_to_cart"), "/cart/#{product.id}",
-              method: :post, class: "btn btn-primary" %>
+              method: :post, class: "btn btn-sm btn-primary fa fa-cart-arrow-down" %>
           </div>
         </div>
-    </div>
-  </div>
-</div>
+       </div>
+     </div>
+   </div>
+ </div>

@@ -123,6 +123,9 @@ en:
   products:
     index:
       product_for_sale: "Products for sale"
+      new_products: "New products"
+      hot_products: "Hot products"
     product:
       price: "price"
       add_to_cart: "Add to cart"
+      show: "show"

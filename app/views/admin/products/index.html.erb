@@ -22,17 +22,17 @@
               </div>
               <div class="form-group">
                 <%= f.label :name %> :
-                <%= f.text_field :name, class: "form-control" ,:required => true%>
+                <%= f.text_field :name, class: "form-control", required: true%>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <%= f.label :price %> :
-                <%= f.text_field :price, class: "form-control", :required => true%>
+                <%= f.text_field :price, class: "form-control", required: true%>
               </div>
               <div class="form-group">
                 <%= f.label :quantity %>
-                <%= f.text_field :quantity, class: "form-control",:required => true %>
+                <%= f.text_field :quantity, class: "form-control", required: true %>
               </div>
               <div class="form-group">
                 <%= f.label :image %>
@@ -51,8 +51,8 @@
             </div>
             <div class="col-sm-12">
               <div class="form-group">
-                <label><%= t ".desciption" %></label>
-                <%= f.text_area :desciption, class: "form-control" ,:required => true%>
+                <label><%= t ".description" %></label>
+                <%= f.text_area :description, class: "form-control", required: true%>
               </div>
             </div>
           </div>
