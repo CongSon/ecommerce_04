@@ -30,6 +30,9 @@ gem "jbuilder", "~> 2.5"
 
 gem "cancancan", "~> 1.10"
 
+gem "delayed_job"
+gem "delayed_job_active_record"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end

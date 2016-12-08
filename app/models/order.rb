@@ -3,10 +3,12 @@ class Order < ApplicationRecord
   has_many :order_details
   before_create :set_status_order, :set_bill_code
 
+  enum status: [:processing, :delivering, :delivered, :cancelled]
+
   def update_order! session_cart, address, phone
     product_carts = session_cart.map {|id, quantity|
       [Product.find_by(id: id), quantity]}
-    self.update_attributes total_pay: total_pay(product_carts),
+    self.update_attributes total_pay: calc_total_pay(product_carts),
       shipping_address: address,
       phone: phone
     if self.save
@@ -28,7 +30,7 @@ class Order < ApplicationRecord
     end
   end
 
-  def total_pay product_carts
+  def calc_total_pay product_carts
     each_amount = []
     if product_carts
       product_carts.each do |product, quantity|
@@ -41,7 +43,7 @@ class Order < ApplicationRecord
 
   private
   def set_status_order
-    self[:status] = Settings.open
+    self[:status] = :processing
   end
 
   def set_bill_code

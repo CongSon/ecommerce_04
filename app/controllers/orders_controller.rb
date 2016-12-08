@@ -5,13 +5,14 @@ class OrdersController < ApplicationController
   def new
     @product_carts = @session_cart.map {|id, quantity|
       [Product.find_by(id: id), quantity]}
-    @total_pay = @order.total_pay @product_carts
+    @total_pay = @order.calc_total_pay @product_carts
   end
 
   def create
     if @order.update_order! @session_cart,
       params[:address], params[:phone]
       flash[:success] = t ".orders_create_successfully"
+      OrderMailer.delay.confirm_order(@order, @user)
     else
       flash[:danger] = t ".orders_create_failed"
     end
