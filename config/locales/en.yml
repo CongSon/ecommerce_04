@@ -25,6 +25,7 @@ en:
   title: "Framgia Ecommerce_04 System"
   specification_not_more_4: "Specification not more 4"
   specification_not_less_2: "Specification not less 2"
+  confirm_order: "ECommerce System confirm order"
   layouts:
     footer:
       framgia: "Ecommerce_04 Framgia Vietnam"
@@ -143,9 +144,12 @@ en:
       price: "price"
       add_to_cart: "Add to cart"
       show: "show"
-    show:
-      add_to_cart: "Add to cart"
-      name: "Name"
+  order_mailer:
+    confirm_order:
+      product_name: "Product name"
       price: "Price"
-      description: "Description"
-
+      quantity: "Quantity"
+      total_price: "Total price"
+      shipping_address: "Shipping address"
+      total_pay: "Total pay"
+      status: "Order status"
