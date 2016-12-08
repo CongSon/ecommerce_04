@@ -1,0 +1,15 @@
+<tr class="row">
+  <td class="col-md-1">
+    <%= link_to product.name, product_path(product) %></td>
+  <td class="col-md-3"><%= product.description %></td>
+  <td class="col-md-1 text-right cart-product-price-<%= product.id %>">
+    <%= get_real_product_price product, Time.now %></td>
+  <td class="col-md-3">
+  </td>
+  <td class="col-md-3 text-right">
+    <%= quantity %>
+  </td>
+  <td class="col-md-1 text-right">
+    <%= calc_price_of_order_detail product, quantity %>
+  </td>
+</tr>

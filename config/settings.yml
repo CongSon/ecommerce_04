@@ -1,2 +1,5 @@
 product:
   per_page: 15
+bill_date: "%Y%m%d%H%M%S"
+bill: "B"
+open: 1
