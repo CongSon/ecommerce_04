@@ -3,7 +3,7 @@
     <div class="thumbnail">
       <div class="image">
         <%= image_tag product.image? ?
-          product.image.url : Settings.product, class: "img-responsive" %>
+          product.image.url : Settings.image, class: "img-responsive" %>
       </div>
       <div class="caption">
         <p class="product_name text-center"><%= product.name %></p>
@@ -13,11 +13,11 @@
           </span>
         </p>
         <hr>
-        <p class="description text-center">
-           <%= product.description %>
+        <p class="description">
+           <%= truncate( product.description, length: Settings.product.length ) %>
         </p>
         <div class="input-group">
-          <a href="#" class="btn btn-sm btn-default"><%= t ".show" %></a>
+          <%= link_to t(".show"), product_path(product), class: "btn btn-sm btn-default"%>
           <div class="input-group-btn">
             <%= link_to t(".add_to_cart"), "/cart/#{product.id}",
               method: :post, class: "btn btn-sm btn-primary fa fa-cart-arrow-down" %>

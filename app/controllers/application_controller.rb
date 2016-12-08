@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
     @user = User.find_by id: params[:id]
     render_404 unless @user
   end
+
+  protected
+  def render_404
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+  end
 end

@@ -1,0 +1,56 @@
+<section class="container-fluid">
+  <div class="row">
+    <div class="container">
+      <div class="col-sm-4">
+        <%= image_tag @product.image? ?
+          @product.image.url : Settings.product, class: "img-responsive" %>
+      </div>
+      <div class="col-sm-8">
+        <table class="row">
+          <tr >
+            <td class="col-xs-4">
+              <%= t".name" %>
+            </td>
+            <td class="col-xs-8">
+              <h1><%= @product.name %></h1>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-4">
+              <%= t".price" %>
+            </td>
+            <td class="col-xs-8">
+              <span style="color: green">
+              <%= number_to_currency @product.price %>
+              </span>
+            </td>
+          </tr>
+          <% @specifications.each do |specification| %>
+          <tr>
+            <td class="col-xs-4">
+              <%= specification.feature_type %>
+            </td>
+            <td  class="col-xs-8">
+              <%= specification.feature_value %>
+            </td>
+          </tr>
+          <% end %>
+          <tr>
+            <td class="col-xs-4">
+              <%= t".description" %>
+            </td>
+            <td class="col-xs-8">
+              <%= @product.description %>
+            </td>
+          </tr>
+        </table>
+        <div class="input-group">
+          <div class="input-group-btn">
+            <%= link_to t(".add_to_cart"), "/cart/#{@product.id}",
+              method: :post, class: "btn btn-sm btn-primary fa fa-cart-arrow-down" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
