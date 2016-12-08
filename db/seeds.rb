@@ -10,7 +10,7 @@ Category.create! name: "Category1", description: "this is Category1", depth: 0,
   lft: 1, rgt: 2
 
 User.create! email: "admin@gmail.com", phone: "0123456789", password: "123456",
-  password_confirmation: "123456", name: "Nguyen Cong Son"
+  password_confirmation: "123456", name: "Nguyen Cong Son", role: 0
 
 Product.create! name: "Apple", description: "apple smartphone", price: 10,
   quantity: 5, category_id: 1

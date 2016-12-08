@@ -1,5 +1,6 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :load_all_categories
+  load_and_authorize_resource
+  before_action :verify_admin
   layout "admin"
 
   def index
@@ -22,9 +23,5 @@ class Admin::CategoriesController < ApplicationController
   private
   def category_params
     params.permit :name, :description
-  end
-
-  def load_all_categories
-    @categories = Category.all
   end
 end

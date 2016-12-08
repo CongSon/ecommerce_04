@@ -93,6 +93,20 @@ en:
         price: "Price"
         create_product_success: "Create product success"
         create_product_fail: "Create product fail"
+    users:
+      index:
+        number: "No."
+        avatar: "Avatar"
+        name: "Name"
+        email: "Email"
+        delete: "Delete"
+        all_users: "All users"
+        search: "enter name or email"
+      user:
+        message_confirm: "Are you sure?"
+      destroy:
+        deleted: "User has been deleted"
+        fail_to_delete: "Fail to delete user"
   orders:
     create:
       orders_create_successfully: "Your order is created successfully"
