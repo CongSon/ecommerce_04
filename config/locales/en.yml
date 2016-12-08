@@ -143,3 +143,9 @@ en:
       price: "price"
       add_to_cart: "Add to cart"
       show: "show"
+    show:
+      add_to_cart: "Add to cart"
+      name: "Name"
+      price: "Price"
+      description: "Description"
+

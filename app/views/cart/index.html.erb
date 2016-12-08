@@ -17,7 +17,7 @@
         <tr class="row">
           <td class="col-md-1">
             <%= link_to product.name, product_path(product) %></td>
-          <td class="col-md-3"><%= product.description %></td>
+          <td class="col-md-3"><%= truncate(product.description, length: Settings.cart.length) %></td>
           <td class="col-md-1">
             <p id="price-<%= product.id %>">
               <%= get_real_product_price product, Time.now %>
