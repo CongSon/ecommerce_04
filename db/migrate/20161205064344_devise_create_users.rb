@@ -21,9 +21,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string   :last_sign_in_ip
 
       t.timestamps null: false
+
+      t.datetime :deleted_at
     end
 
     add_index :users, :email, unique: true
     add_index :users, :reset_password_token, unique: true
+    add_index :users, :deleted_at
   end
 end
