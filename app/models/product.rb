@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   belongs_to :category
   has_many :specifications, dependent: :destroy, inverse_of: :product
   has_many :comments
@@ -18,6 +21,10 @@ class Product < ApplicationRecord
     reject_if: proc{|attributes| attributes["feature_value"].blank?}
   scope :in_category, -> category_id do
     where category_id: category_id if category_id.present?
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
   end
 
   class << self
