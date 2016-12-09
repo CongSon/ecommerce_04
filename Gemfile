@@ -35,6 +35,8 @@ gem "delayed_job_active_record"
 
 gem "figaro"
 
+gem "friendly_id"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
