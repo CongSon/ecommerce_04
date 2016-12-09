@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :suggested_products
   before_save :init_role
 
+  acts_as_paranoid
+
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
   paginates_per Settings.user.per_page

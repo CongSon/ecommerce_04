@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
-  load_and_authorize_resource
   before_action :authenticate_user!, :verify_admin
+  before_action :load_user, only: :destroy
   layout "admin"
 
   def index

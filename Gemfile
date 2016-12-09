@@ -37,6 +37,8 @@ gem "figaro"
 
 gem "friendly_id"
 
+gem "paranoia"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end

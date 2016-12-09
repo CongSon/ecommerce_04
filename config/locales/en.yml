@@ -94,6 +94,11 @@ en:
         price: "Price"
         create_product_success: "Create product success"
         create_product_fail: "Create product fail"
+      product:
+        confirm: "Are you sure?"
+      destroy:
+        deleted: "Delete successfully"
+        fail_to_delete: "Fail to delete"
     users:
       index:
         number: "No."
