@@ -158,3 +158,16 @@ en:
       shipping_address: "Shipping address"
       total_pay: "Total pay"
       status: "Order status"
+  suggested_products:
+    create:
+      create_success: "Create suggested product successfully"
+    load_suggested_product:
+      not_found: "Not found suggested product"
+    form:
+      enter_product_description: "Enter product description"
+      create: "Create"
+    new:
+      create_suggested_product: "Create suggested product"
+    show:
+      product_info: "Suggested product information"
+      back: "Back"

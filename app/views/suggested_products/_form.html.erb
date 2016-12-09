@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for @suggested_product do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description, as: :text %>
+      <%= f.button :submit, t(".create"), class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>

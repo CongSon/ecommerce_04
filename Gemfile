@@ -39,6 +39,8 @@ gem "friendly_id"
 
 gem "paranoia"
 
+gem "simple_form"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
