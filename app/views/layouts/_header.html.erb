@@ -30,6 +30,9 @@
           <ul class="dropdown-menu">
             <li><%= link_to t(".log_in"), new_user_session_path %></li>
             <li><%= link_to t(".sign_up"), new_user_registration_path %></li>
+            <li><%= link_to t(".sign_in"), user_facebook_omniauth_authorize_path,
+              class: "fa fa-facebook-official"%>
+            </li>
           </ul>
         </li>
         <li>

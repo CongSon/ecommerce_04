@@ -44,6 +44,7 @@ en:
       account: "Account"
       settings: "Settings"
       log_out: "Log out"
+      sign_in: "Sign in "
   static_pages:
     home:
       welcome_statement: "Welcome to Framgia Ecommerce_04 System!"
