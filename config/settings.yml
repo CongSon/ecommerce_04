@@ -10,4 +10,5 @@ open: 1
 user:
   per_page: 10
 image: img.jpg
-
+category:
+  per_page: 10
