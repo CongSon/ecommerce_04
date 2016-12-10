@@ -26,6 +26,13 @@ en:
   specification_not_more_4: "Specification not more 4"
   specification_not_less_2: "Specification not less 2"
   confirm_order: "ECommerce System confirm order"
+  statistic_order_admin_end_month: "statistic of order to admin at end of month"
+  bill_code: "bill code"
+  phone: "phone"
+  hot_product_in_month: "hot product in month"
+  total_pay: "total pay"
+  guest: "guest"
+  shipping_address: "shipping address"
   layouts:
     footer:
       framgia: "Ecommerce_04 Framgia Vietnam"
