@@ -1,0 +1,24 @@
+<h2><%= t "statistic_order_admin_end_month" %></h2>
+<% @hot_trend_products.each do |product| %>
+  <ul>
+    <li><%= t "hot_product_in_month"%>: <%= product.name %></li>
+  </ul>
+<%end%>
+<% @orders.each do |order| %>
+  <table>
+    <tr>
+      <td><%= t "bill_code"%></td>
+      <td><%= t "total_pay"%></td>
+      <td><%= t "guest" %></td>
+      <td><%= t "shipping_address"%></td>
+      <td><%= t "phone"%></td>
+    </tr>
+    <tr>
+      <td><%= order.bill_code %></td>
+      <td><%= order.total_pay %></td>
+      <td><%= order.user.name %></td>
+      <td><%= order.shipping_address %></td>
+      <td><%= order.phone %></td>
+    </tr>
+  </table>
+<%end%>

@@ -40,6 +40,10 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.action_mailer.default_options = {
+    from: "n.c.thanh0801@gmail.com"
+  }
+
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.

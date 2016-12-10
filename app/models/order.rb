@@ -2,8 +2,13 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_details
   before_create :set_status_order, :set_bill_code
-
+  delegate :name, to: :user, prefix: true
   enum status: [:processing, :delivering, :delivered, :cancelled]
+
+  scope :order_in_month, -> (start_date, end_date) do
+    where("date(updated_at) > '#{start_date}' AND
+      date(updated_at) <'#{end_date}'")
+  end
 
   def update_order! session_cart, address, phone
     product_carts = session_cart.map {|id, quantity|
