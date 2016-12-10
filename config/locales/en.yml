@@ -74,14 +74,30 @@ en:
         create_category_success: "Create category successfully"
         create_category_fail: "Fail to create category"
       index:
+        all_categories: "All categories"
         add_category: "Add category"
         category_parent: "Category parent"
         name: "Name"
         description: "Description"
         add: "Add"
         cancel: "Cancel"
+        search: "Search"
       parent_category:
         none: "None"
+      update:
+        update_success: "Update category successfully"
+        update_fail: "Fail to update category"
+      category:
+        message_confirm: "Are you sure?"
+        update: "Update"
+        cancel: "Cancel"
+        name: "Category name"
+        description: "Category description"
+      destroy:
+        must_be_leaf: "Can not delete parent category"
+        notice_message: "Category contains some products"
+        delete_success: "Delete category successfully"
+        delete_fail: "Fail to delete category"
     products:
       index:
         add: "Add"

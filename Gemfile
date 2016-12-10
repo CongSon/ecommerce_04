@@ -41,6 +41,8 @@ gem "paranoia"
 
 gem "simple_form"
 
+gem "ransack"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
