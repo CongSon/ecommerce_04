@@ -82,6 +82,7 @@ en:
         add: "Add"
         cancel: "Cancel"
         search: "Search"
+        name_or_description: "Name or description: "
       parent_category:
         none: "None"
       update:
@@ -129,6 +130,35 @@ en:
       destroy:
         deleted: "User has been deleted"
         fail_to_delete: "Fail to delete user"
+    orders:
+      form:
+        change: "Change"
+      index:
+        status: "Status"
+        total_pay: "Total pay"
+        shipping_address: "Shipping address"
+        phone: "Phone"
+        bill_code: "Bill code"
+        update: "Update status"
+        list_orders: "List orders"
+        search: "Search"
+        greaterthan: "Total pay: >"
+        lessthan: "<"
+    suggested_products:
+      index:
+        list_suggested_product: "List suggested_products"
+        number: "No."
+        name: "Name"
+        description: "Description"
+        name_or_description: "Name or description: "
+        update: "Update"
+        status: "Status"
+        search: "Search"
+      update:
+        update_success: "Update successfully"
+        update_fail: "Fail to update"
+      form:
+        change: "Change"
   orders:
     create:
       orders_create_successfully: "Your order is created successfully"
@@ -186,4 +216,5 @@ en:
       create_suggested_product: "Create suggested product"
     show:
       product_info: "Suggested product information"
-      back: "Back"
+      product_name: "Product name"
+      product_description: "Product description"

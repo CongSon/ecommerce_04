@@ -1,0 +1,31 @@
+<div class="col-md-12">
+  <h2 class="head"><%= t ".list_suggested_product" %></h2>
+  <div class="search-form">
+    <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+      <div class="form-group">
+        <%= f.label :name_or_description_cont, t(".name_or_description") %>
+        <%= f.text_field :name_or_description_cont, class: "form-control" %>
+      </div>
+      <div class= "col-md-2 pull-right" >
+        <%= f.submit t(".search"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr class="info row">
+        <th class="col-md-1"><%= t ".number" %></th>
+        <th class="col-md-1"><%= t ".status" %></th>
+        <th class="col-md-2"><%= t ".name" %></th>
+        <th class="col-md-4"><%= t ".description" %></th>
+        <th class="col-md-4"><%= t ".update" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @suggested_products.any? %>
+        <%= render @suggested_products %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @suggested_products%>
+</div>

@@ -1,20 +1,18 @@
 <h3 class="text-center"><%= t ".product_info" %></h3>
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
-    <%= form_tag :back do %>
-      <div>
-        <%= label_tag :product_name %>
-        <%= text_field_tag :name, @suggested_product.name, readonly: true,
-          class: "form-control" %>
-      </div>
-      <div>
-        <%= label_tag :product_description %>
-        <%= text_field_tag :name, @suggested_product.description, readonly: true,
-          class: "form-control" %>
-      </div>
-      <div class="pull-right">
-        <%= submit_tag t(".back"), class: "btn btn-default" %>
-      </div>
-    <% end %>
+    <div>
+      <label><%= t ".product_name" %></label>
+      <input type="text" value="<%= @suggested_product.name %>"
+        readonly="readonly" class="form-control">
+    </div>
+    <div>
+      <label><%= t ".product_description" %></label>
+      <input type="text" value="<%= @suggested_product.description %>"
+        readonly="readonly" class="form-control">
+    </div>
+    <div class="pull-right">
+      <%= link_to "", root_path, class: "btn btn-default fa fa-check" %>
+    </div>
   </div>
 </div>

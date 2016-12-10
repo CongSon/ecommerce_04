@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20161209044713) do
   create_table "suggested_products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "status"
+    t.integer  "status"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
