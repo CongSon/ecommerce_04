@@ -1,6 +1,25 @@
 <div class="row">
   <h3 class="text-center head"><%= t".list-product"%></h3>
   <div class="col-md-12">
+    <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+      <div class="col-md-4 form-group">
+        <%= f.label :name_or_description_cont, t(".name") %>
+        <%= f.text_field :name_or_description_cont, class: "form-control" %><br>
+      </div>
+      <div class="col-md-4 form-group">
+        <%= f.label :price_gteq, t(".greaterthan") %>
+        <%= f.text_field :price_gteq, class: "form-control" %><br>
+      </div>
+      <div class="col-md-4 form-group">
+        <%= f.label :price_lteq, t(".lessthan") %>
+        <%= f.text_field :price_lteq, class: "form-control" %><br>
+      </div>
+      <div class= "col-md-2 pull-right" >
+        <%= f.submit t(".search"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-12">
     <%= link_to "", "#product-modal", data: {toggle: "modal"},
       class: "btn btn-primary btn-add-product fa fa-plus" %>
   </div>
@@ -17,17 +36,17 @@
               <div class="form-group">
                 <%= f.label :category %>
                 <%= f.select :category_id, options_for_select(
-                  @categories.collect{|cat|["#{'-' * cat.depth} #{cat.name}", cat.id]},
-                   {class: "form-control"}) %>
+                  @categories_leaf.collect{|cat|[cat.name, cat.id]},
+                    {class: "form-control"}) %>
               </div>
               <div class="form-group">
-                <%= f.label :name %> :
+                <%= f.label :name %>:
                 <%= f.text_field :name, class: "form-control", required: true%>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <%= f.label :price %> :
+                <%= f.label :price %>:
                 <%= f.text_field :price, class: "form-control", required: true%>
               </div>
               <div class="form-group">
@@ -41,9 +60,9 @@
               </div>
             </div>
             <div class="form-group col-sm-12">
-              <%= f.label :specifications %> :
+              <%= f.label :specifications %>:
               <%= f.fields_for :specifications do |builder| %>
-                <%= render "answer_fields", f: builder %>
+                <%= render "specification_fields", f: builder %>
               <% end %>
             </div>
             <div class="form-group col-sm-12">
@@ -77,7 +96,6 @@
         <th><%= t ".price" %></th>
         <th><%= t ".quantity" %></th>
         <th><%= t ".image" %></th>
-        <th><%= t ".info" %></th>
         <th><%= t ".edit" %></th>
         <th><%= t ".delete" %></th>
       </tr>

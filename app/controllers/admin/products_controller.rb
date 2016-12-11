@@ -1,12 +1,12 @@
 class Admin::ProductsController < ApplicationController
   load_and_authorize_resource
-  before_action :authenticate_user!, :load_all_categories
+  before_action :authenticate_user!, :load_all_leaf_categories
   layout "admin"
 
   def index
     @product = Product.new
-    @products = Product.list_product.in_category(params[:category_id])
-      .page params[:page]
+    @search = Product.search params[:q]
+    @products = @search.result.page params[:page]
   end
 
   def create
@@ -15,6 +15,18 @@ class Admin::ProductsController < ApplicationController
       flash[:success] = t ".create_product_success"
     else
       flash[:notice] = t ".create_product_fail"
+    end
+    redirect_to :back
+  end
+
+  def edit
+  end
+
+  def update
+    if @product.update_attributes product_params
+      flash[:success] = t ".update_success"
+    else
+      flash[:notice] = t ".update_failed"
     end
     redirect_to :back
   end
@@ -36,7 +48,7 @@ class Admin::ProductsController < ApplicationController
       specifications_attributes: [:id, :feature_value, :feature_type, :_destroy]
   end
 
-  def load_all_categories
-    @categories = Category.all
+  def load_all_leaf_categories
+    @categories_leaf = Category.all.reject {|category| !category.is_leaf?}
   end
 end
