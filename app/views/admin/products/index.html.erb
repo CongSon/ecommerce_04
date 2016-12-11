@@ -37,7 +37,7 @@
                 <%= f.label :category %>
                 <%= f.select :category_id, options_for_select(
                   @categories_leaf.collect{|cat|[cat.name, cat.id]},
-                    {class: "form-control"}) %>
+                  {class: "form-control"}) %>
               </div>
               <div class="form-group">
                 <%= f.label :name %>:

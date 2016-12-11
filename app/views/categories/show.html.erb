@@ -1,0 +1,11 @@
+<section class="container-fluid">
+  <h1 class="text-center head"><%= @category.name %></h1>
+  <div class="row">
+    <% if @products.any? %>
+      <% @products.each do |product| %>
+        <%= render "products/product", product: product %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= paginate @products%>
+</section>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :products
   resources :orders, only: [:new, :create, :show]
   resources :suggested_products
+  resources :categories, only: :show
 
   get "/cart", to: "cart#index"
   delete "/cart/:id/delete", to: "cart#destroy"
