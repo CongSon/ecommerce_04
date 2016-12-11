@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   has_many :comments
-  has_many :rates
   has_many :favorites
   has_many :orders
   has_many :suggested_products
   before_save :init_role
+
+  ratyrate_rater
 
   acts_as_paranoid
 

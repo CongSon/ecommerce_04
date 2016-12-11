@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/rate", to: "rater#create", as: "rate"
   devise_for :users
 
   root "products#index"

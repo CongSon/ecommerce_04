@@ -11,6 +11,10 @@ Category.create! name: "Category1", description: "this is Category1", depth: 0,
 
 User.create! email: "n.c.thanh080193@gmail.com", phone: "0123456789", password: "123456",
   password_confirmation: "123456", name: "Nguyen Cong Son", role: 0
+User.create! email: "son@gmail.com", phone: "111111111", password: "123456",
+password_confirmation: "123456", name: "Nguyen Cong Son", role: 1
+User.create! email: "thanh@gmail.com", phone: "111111111", password: "123456",
+password_confirmation: "123456", name: "Nguyen Chi Thanh", role: 1
 
 Product.create! name: "Apple", description: "apple smartphone", price: 10,
   quantity: 5, category_id: 1

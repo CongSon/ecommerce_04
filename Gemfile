@@ -44,6 +44,8 @@ gem "simple_form"
 
 gem "ransack"
 
+gem "ratyrate"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
