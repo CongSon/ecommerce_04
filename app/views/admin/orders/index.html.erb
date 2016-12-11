@@ -1,0 +1,51 @@
+<div class="col-md-12">
+  <h2 class="head"><%= t ".list_orders" %></h2>
+    <div class="col-md-12">
+      <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+        <div class="col-md-4 form-group">
+          <%= f.label :bill_code_cont, t(".bill_code") %>
+          <%= f.text_field :bill_code_cont, class: "form-control" %><br>
+        </div>
+        <div class="col-md-4 form-group">
+          <%= f.label :total_pay_gteq, t(".greaterthan") %>
+          <%= f.text_field :total_pay_gteq, class: "form-control" %><br>
+        </div>
+        <div class="col-md-4 form-group">
+          <%= f.label :total_pay_lteq, t(".lessthan") %>
+          <%= f.text_field :total_pay_lteq, class: "form-control" %><br>
+        </div>
+        <div class= "col-md-2 pull-right" >
+          <%= f.submit t(".search"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  <table class="table table-hover">
+    <thead>
+      <tr class="info row">
+        <th class="col-md-1"><%= t ".status" %></th>
+        <th class="col-md-1"><%= t ".total_pay" %></th>
+        <th class="col-md-2"><%= t ".shipping_address" %></th>
+        <th class="col-md-2"><%= t ".phone" %></th>
+        <th class="col-md-2"><%= t ".bill_code" %></th>
+        <th class="col-md-4"><%= t ".update" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @orders.any? %>
+        <% @orders.each do |order|%>
+          <tr class="row">
+            <td class="col-md-1"><%= order.status %></td>
+            <td class="col-md-1"><%= order.total_pay %></td>
+            <td class="col-md-2"><%= order.shipping_address %></td>
+            <td class="col-md-2"><%= order.phone %></td>
+            <td class="col-md-2"><%= order.bill_code %></td>
+            <td class="col-md-4">
+              <%= render "form", order: order %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @orders%>
+</div>

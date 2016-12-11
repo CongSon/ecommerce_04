@@ -4,12 +4,8 @@
   <div class="search-form">
     <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
       <div class="form-group">
-        <%= f.label :name_cont, t(".name") %>
-        <%= f.text_field :name_cont, class: "form-control" %><br>
-      </div>
-      <div class="form-group">
-        <%= f.label :description_cont, t(".description") %>
-        <%= f.text_field :description_cont, class: "form-control" %><br>
+        <%= f.label :name_or_description_cont, t(".name_or_description") %>
+        <%= f.text_field :name_or_description_cont, class: "form-control" %>
       </div>
       <div class= "col-md-2 pull-right" >
         <%= f.submit t(".search"), class: "btn btn-primary" %>

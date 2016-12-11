@@ -3,7 +3,7 @@ class CreateSuggestedProducts < ActiveRecord::Migration[5.0]
     create_table :suggested_products do |t|
       t.string :name
       t.text :description
-      t.boolean :status
+      t.integer :status
       t.references :user, foreign_key: true
 
       t.timestamps

@@ -1,0 +1,10 @@
+<tr class="row">
+  <td class="col-md-1"><%= index_for suggested_product_counter,
+    @suggested_products.current_page, Settings.per_page %></td>
+  <td class="col-md-1"><%= suggested_product.status %></td>
+  <td class="col-md-2"><%= suggested_product.name %></td>
+  <td class="col-md-4"><%= suggested_product.description %></td>
+  <td class="col-md-4">
+    <%= render "form", product: suggested_product %>
+  </td>
+</tr>
