@@ -674,3 +674,12 @@ td .btn {
 .add_product{
   width: 10% !important;
 }
+.search-forms{
+  padding: 20px 100px;
+}
+.search-forms .form-group {
+  padding-left: 20px;
+  .form-control{
+    margin-bottom:0px;
+  }
+}

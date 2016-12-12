@@ -243,3 +243,8 @@ en:
       product_info: "Suggested product information"
       product_name: "Product name"
       product_description: "Product description"
+  categories:
+    show:
+      search: "Search"
+      greaterthan: "Pay: >"
+      lessthan: "<"

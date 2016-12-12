@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
 
   def show
-    @products = @category.products.page params[:page]
+    @search = @category.products.search params[:q]
+    @products = @search.result.page params[:page]
   end
 end

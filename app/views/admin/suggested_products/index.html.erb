@@ -1,12 +1,12 @@
 <div class="col-md-12">
   <h2 class="head"><%= t ".list_suggested_product" %></h2>
-  <div class="search-form">
+  <div class="search-forms container">
     <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
       <div class="form-group">
         <%= f.label :name_or_description_cont, t(".name_or_description") %>
         <%= f.text_field :name_or_description_cont, class: "form-control" %>
       </div>
-      <div class= "col-md-2 pull-right" >
+      <div class= "form-group" >
         <%= f.submit t(".search"), class: "btn btn-primary" %>
       </div>
     <% end %>
