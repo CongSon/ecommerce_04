@@ -18,7 +18,7 @@ gem "puma", "~> 3.0"
 gem "whenever"
 gem "sidekiq"
 gem "sass-rails", "~> 5.0"
-
+gem "social-share-button", "~> 0.8.4"
 gem "uglifier", ">= 1.3.0"
 
 gem "coffee-rails", "~> 4.2"
