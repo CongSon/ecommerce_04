@@ -17,15 +17,73 @@
     <%= image_tag product.image? ?
       product.image.url : Settings.product, class: "img-responsive" %>
   </td>
-  <td class="action col-sm-1">
-    <%= link_to "", admin_product_path(product),
-      class: "btn btn-info fa fa-info-circle" %>
   <td class="col-sm-1">
-    <%= link_to "",
-      edit_admin_product_path(product), class: "btn btn-warning fa fa-pencil" %>
+    <%= link_to "", "#product-modal-#{product.id}", data: {toggle: "modal"},
+      class: "btn btn-warning fa fa-pencil" %>
   </td>
   <td class="col-sm-1">
     <%= link_to "", admin_product_path(product), method: :delete,
       data: {confirm: t(".confirm")}, class: "btn btn-danger fa fa-trash" %>
   </td>
 </tr>
+<%= form_for [:admin, product], url: admin_product_path(product) do |f| %>
+  <div id="product-modal-<%= product.id %>" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5><%= t".edit_product" %></h5>
+        </div>
+        <form role="form row">
+          <div class="modal-body row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.label :category %>
+                <%= f.select :category_id, options_for_select(
+                  @categories_leaf.collect{|cat|[cat.name, cat.id]},
+                  {class: "form-control"}) %>
+              </div>
+              <div class="form-group">
+                <%= f.label :name %>:
+                <%= f.text_field :name, class: "form-control", required: true%>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.label :price %>:
+                <%= f.text_field :price, class: "form-control", required: true%>
+              </div>
+              <div class="form-group">
+                <%= f.label :quantity %>
+                <%= f.text_field :quantity, class: "form-control", required: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :image %>
+                <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png",
+                  multipart: true  %>
+              </div>
+            </div>
+            <div class="form-group col-sm-12">
+              <%= f.label :specifications %>:
+              <%= f.fields_for :specifications do |builder| %>
+                <%= render "specification_fields", f: builder %>
+              <% end %>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label><%= t ".description" %></label>
+                <%= f.text_area :description, class: "form-control", required: true%>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          <%= f.submit t(".save"), class: "btn btn-primary add-product fa fa-plus"%>
+            <button type="submit" class="btn btn-danger"
+              data-dismiss="modal">
+              <%= t ".cancel" %>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<% end %>

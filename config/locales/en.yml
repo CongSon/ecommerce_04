@@ -109,6 +109,9 @@ en:
     products:
       index:
         add: "Add"
+        greaterthan: "Price: >"
+        lessthan: "<"
+        search: "Search"
       create:
         category: "Category"
         name: "Name"
@@ -120,9 +123,14 @@ en:
         create_product_fail: "Create product fail"
       product:
         confirm: "Are you sure?"
+        save: "Save"
+        edit_product: "Edit product"
       destroy:
         deleted: "Delete successfully"
         fail_to_delete: "Fail to delete"
+      update:
+        update_success: "Update successfully"
+        update_failed: "Fail to update"
     users:
       index:
         number: "No."
