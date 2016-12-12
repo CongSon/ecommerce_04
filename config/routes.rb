@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   post "/rate", to: "rater#create", as: "rate"
-  devise_for :users
   devise_for :users,
-    :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-
+    controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   root "products#index"
 
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
     resources :users
     resources :orders
     resources :suggested_products
+    resources :csv, only: :create
   end
 
   resources :products
