@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   root "products#index"
 
   namespace :admin do
+    root "charts#index"
     resources :categories
     resources :products
     resources :users
     resources :orders
     resources :suggested_products
     resources :csv, only: :create
+    resources :charts, :line_chart
   end
 
   resources :products

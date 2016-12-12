@@ -10,6 +10,14 @@ class Order < ApplicationRecord
       date(updated_at) <'#{end_date}'")
   end
 
+  scope :order_count, -> date_time do
+    where("date(created_at) = '#{date_time}'")
+  end
+
+  scope :sum_order, -> date_time do
+    where("date(created_at) = '#{date_time}'")
+  end
+
   def update_order! session_cart, address, phone
     product_carts = session_cart.map {|id, quantity|
       [Product.find_by(id: id), quantity]}

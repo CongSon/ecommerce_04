@@ -17,4 +17,11 @@
 //= require i18n/translations
 //= require_tree ./admin
 //= require bootstrap
+//= require admin/highcharts
+//= require admin/chart.js
+//= require admin/line_chart.js
 
+$(document).on('turbolinks:load', function () {
+  chart.initialize();
+  lineChart.initialize();
+});
