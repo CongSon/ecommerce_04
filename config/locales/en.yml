@@ -113,6 +113,10 @@ en:
         greaterthan: "Price: >"
         lessthan: "<"
         search: "Search"
+        import_file: "Import file"
+        submit: "Submit"
+        import: "Import"
+        close: "Close"
       create:
         category: "Category"
         name: "Name"
@@ -177,6 +181,9 @@ en:
         update_fail: "Fail to update"
       form:
         change: "Change"
+    csv:
+      create:
+        product_imported: "Product imported successfully"
   orders:
     create:
       orders_create_successfully: "Your order is created successfully"

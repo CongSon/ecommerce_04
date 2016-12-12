@@ -19,9 +19,36 @@
       </div>
     <% end %>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-1">
     <%= link_to "", "#product-modal", data: {toggle: "modal"},
       class: "btn btn-primary btn-add-product fa fa-plus" %>
+  </div>
+  <div class="col-sm-1">
+    <button type="button" class="btn btn-info" data-toggle="modal"
+      data-target="#importModal"><%= t ".import" %></button>
+    <div class="container">
+      <div class="modal fade" id="importModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;</button>
+              <h4 class="modal-title head"><%= t ".import_file" %></h4>
+            </div>
+            <div class="modal-body">
+              <%= form_tag admin_csv_index_path, multipart: true do %>
+                <%= file_field_tag :file %>
+                <%= submit_tag t(".submit"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger"
+                data-dismiss="modal"><%= t ".close"%></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <%= form_for [:admin, @product], url: admin_products_path, method: :post do |f| %>
   <div id="product-modal" class="modal fade">
