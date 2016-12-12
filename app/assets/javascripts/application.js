@@ -15,9 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require jquery.raty
+//= require ratyrate
 
 $(document).on('turbolinks:load', function () {
-
   var data = {};
     $('.cart-quantity').each(function(){
       $(this).bind('keyup change click', function (e) {
