@@ -10,7 +10,7 @@ class User < ApplicationRecord
   acts_as_paranoid
 
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   paginates_per Settings.user.per_page
 
   enum role: [:admin, :user]
@@ -25,6 +25,19 @@ class User < ApplicationRecord
     def find_all_user
       User.select(:id, :name, :email, :avatar).where(role: :user)
         .order created_at: :DESC
+    end
+
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.phone = auth.info.phone
+        user.avatar = auth.info.image + "?type=large"
+        user.password = Devise.friendly_token[0,20]
+        user.name = auth.info.name
+        user.save
+      end
     end
   end
 
