@@ -6,6 +6,10 @@ class Admin::OrdersController < ApplicationController
   def index
     @search = Order.search params[:q]
     @orders = @search.result.page params[:page]
+    respond_to do |format|
+      format.html
+      format.xls {send_data @orders.to_xls(col_sep: "\t")}
+    end
   end
 
   def update

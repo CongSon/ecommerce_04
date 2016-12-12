@@ -14,6 +14,12 @@
           <%= f.label :total_pay_lteq, t(".lessthan") %>
           <%= f.text_field :total_pay_lteq, class: "form-control" %><br>
         </div>
+        <div class="col-md-10">
+          <p>
+            <%= t ".download" %>:
+            <%= link_to t(".excel_By_Xml"), admin_orders_path(format: "xls") %>
+          </p>
+        </div>
         <div class= "col-md-2 pull-right" >
           <%= f.submit t(".search"), class: "btn btn-primary" %>
         </div>

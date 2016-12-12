@@ -160,6 +160,8 @@ en:
         search: "Search"
         greaterthan: "Total pay: >"
         lessthan: "<"
+        download: "Download"
+        excel_By_Xml: "Excel By Xml"
     suggested_products:
       index:
         list_suggested_product: "List suggested_products"
