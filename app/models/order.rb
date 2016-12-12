@@ -35,6 +35,15 @@ class Order < ApplicationRecord
     end
   end
 
+  def self.to_xls(options = [])
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |order|
+        csv << order.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def calc_total_pay product_carts
     each_amount = []
     if product_carts
