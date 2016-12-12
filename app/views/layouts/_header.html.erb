@@ -3,6 +3,16 @@
     <h1><%= link_to t(".app_name"), root_path, id: "logo" %>
       <span class="books"></span>
     </h1>
+    <div class="pull-left">
+      <ul>
+        <li class="dropdown navc product-cate">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+            <%= t ".category" %><b class="caret"></b>
+          </a>
+          <%= raw load_categories_menu %>
+        </li>
+      </ul>
+    </div>
     <ul>
       <% if user_signed_in? %>
         <li class="dropdown">
