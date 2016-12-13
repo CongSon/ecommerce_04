@@ -65,6 +65,32 @@
           <%= raw load_favorite_product @product.id %>
         <% end %>
       </div>
+      <div class="clearfix">  </div>
+      <div id="comment" class="col-md-6">
+        <span class="header-comment">
+          <%= t ".write_your_comment" %>
+        </span>
+        <% if user_signed_in? %>
+          <%= form_for [@product, @product.comments.new], remote: true do |f| %>
+            <div class="form-group">
+              <%= f.text_area :content, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.submit t(".comment"),
+                class: "btn btn-primary fa fa-comment" %>
+            </div>
+          <% end %>
+        <% else %>
+          <%= t ".you_need" %>
+          <%= link_to t(".login"), new_user_session_path %>
+        <% end %>
+        </div>
+        <div class="list-comment col-md-6">
+          <ul id="comments">
+            <%= render @comments %>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>

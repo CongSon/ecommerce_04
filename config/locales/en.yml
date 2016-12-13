@@ -233,6 +233,13 @@ en:
       price: "price"
       add_to_cart: "Add to cart"
       show: "show"
+    show:
+      write_your_comment: "Write your comment"
+      comment: "Comment"
+      comment_at: "Comment at"
+      ago: "ago"
+      you_need: "You need"
+      login: "login"
   order_mailer:
     confirm_order:
       product_name: "Product name"

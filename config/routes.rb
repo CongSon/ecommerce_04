@@ -14,8 +14,12 @@ Rails.application.routes.draw do
     resources :csv, only: :create
   end
 
-  resources :products
+
   resources :orders
+  resources :products do
+    resources :comments
+  end
+
   resources :suggested_products
   resources :categories, only: :show
   resources :favorite_products, only: [:create, :destroy]
