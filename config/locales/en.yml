@@ -35,6 +35,14 @@ en:
   shipping_address: "shipping address"
   add_favo: "[+] Add as favorite"
   remove_favo: "[-] Remove from favorites"
+  revenue_weekly_report: "Revenue weekly report"
+  weekly_report: "Weekly report"
+  number: "number"
+  total_pay: "Total pay ( $ )"
+  users: "Users"
+  order: "Order"
+  line: "line"
+  column: "column"
   layouts:
     footer:
       framgia: "Ecommerce_04 Framgia Vietnam"

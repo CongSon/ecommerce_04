@@ -1,4 +1,6 @@
+require "common"
 class User < ApplicationRecord
+  include SharedMethods
   has_many :comments
   has_many :orders
   has_many :suggested_products
@@ -23,6 +25,11 @@ class User < ApplicationRecord
   scope :email_admin, -> () {
     self.select(:id, :email).where role: :admin
   }
+
+  scope :user_count, -> date_time do
+    where("date(created_at) = '#{date_time}'")
+  end
+
   class << self
     def find_all_user
       User.select(:id, :name, :email, :avatar).where(role: :user)
