@@ -307,12 +307,29 @@ li.dropdown.custom-nav > ul {
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
 }
+
 .dropdown-submenu > .dropdown-menu{
   top: 0px !important ;
 }
+
 .search-forms{
   padding: 20px 100px;
 }
+
 .search-forms .form-group {
   padding-left: 20px;
+}
+
+a#fav.inactive{
+  background: url('remove.png');
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+a#fav.active{
+  background: url('add.png');
+  display: block;
+  width: 32px;
+  height: 32px;
 }

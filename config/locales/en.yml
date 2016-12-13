@@ -33,6 +33,8 @@ en:
   total_pay: "total pay"
   guest: "guest"
   shipping_address: "shipping address"
+  add_favo: "[+] Add as favorite"
+  remove_favo: "[-] Remove from favorites"
   layouts:
     footer:
       framgia: "Ecommerce_04 Framgia Vietnam"

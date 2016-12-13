@@ -45,4 +45,42 @@ $(document).on('turbolinks:load', function () {
       });
     }
   });
+
+  $('a#fav.inactive').bind('click', addFav);
+  $('a#fav.active').bind('click', removeFav);
 });
+function addFav(){
+  var product_id = $('.favorite-product').attr('data')
+  $.ajax({
+    url: '/favorite_products/',
+    data: {product_id: product_id},
+    method: 'POST',
+    success: function(){
+      $('a#fav')
+        .removeClass('inactive')
+        .addClass('active')
+        .attr('title','[-] Remove from favorites')
+        .unbind('click')
+        .bind('click', removeFav)
+       ;
+    }
+  });
+}
+
+function removeFav(){
+  var product_id = $('.favorite-product').attr('data')
+  $.ajax({
+    url: '/favorite_products/' + product_id,
+    data: {product_id: product_id},
+    method: 'DELETE',
+    success: function(){
+      $('a#fav')
+        .removeClass('active')
+        .addClass('inactive')
+        .attr('title','[+] Add as favorite')
+        .unbind('click')
+        .bind('click', addFav)
+      ;
+    }
+  });
+}
