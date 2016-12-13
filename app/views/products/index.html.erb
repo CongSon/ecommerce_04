@@ -1,11 +1,20 @@
 <section class="container-fluid">
-  <h1 class="text-center head"><%= t ".hot_products" %></h1>
-  <div class="row">
-    <%= render @hot_trend_products %>
-  </div>
-  <h1 class="text-center head"><%= t ".new_products" %></h1>
-  <div class="row">
-    <%= render @newest_products %>
-  </div>
+  <% if @hot_trend_products.any? %>
+    <h1 class="text-center head"><%= t ".hot_products" %></h1>
+    <div class="row">
+      <%= render @hot_trend_products %>
+    </div>
+  <% end %>
+  <% if @newest_products.any? %>
+    <h1 class="text-center head"><%= t ".new_products" %></h1>
+    <div class="row">
+      <%= render @newest_products %>
+    </div>
+  <% end %>
+  <% if @recent_products %>
+    <h1 class="text-center head"><%= t ".recent_view" %></h1>
+    <div class="row">
+      <%= render @recent_products %>
+    </div>
+  <% end %>
 </section>
-
