@@ -6,11 +6,12 @@ class CartController < ApplicationController
   end
 
   def create
-    id = params[:id]
+    id = params["product_id"]
     session[:cart] = {} unless session[:cart]
     cart = session[:cart]
     cart[id] = cart[id] ? (cart[id].to_i + 1) : 1
-    redirect_to products_path
+
+    render json: cart.size
   end
 
   def update
