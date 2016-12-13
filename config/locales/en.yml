@@ -213,6 +213,7 @@ en:
       remove: "Remove"
       next: "Next"
       new_cart: "New cart"
+      delete_confirm: "Are you sure?"
   products:
     index:
       product_for_sale: "Products for sale"

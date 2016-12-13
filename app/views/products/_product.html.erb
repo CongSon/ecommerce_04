@@ -19,8 +19,10 @@
         <div class="input-group">
           <%= link_to t(".show"), product_path(product), class: "btn btn-sm btn-default"%>
           <div class="input-group-btn">
-            <%= link_to t(".add_to_cart"), "/cart/#{product.id}",
-              method: :post, class: "btn btn-sm btn-primary fa fa-cart-arrow-down" %>
+            <a id="add-cart-<%= product.id %>" class="btn btn-sm btn-primary fa
+              fa-cart-arrow-down add-product-cart" data="<%= product.id %>">
+              <%= t".add_to_cart" %>
+            </a>
           </div>
         </div>
        </div>

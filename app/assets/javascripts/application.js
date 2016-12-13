@@ -48,7 +48,24 @@ $(document).on('turbolinks:load', function () {
 
   $('a#fav.inactive').bind('click', addFav);
   $('a#fav.active').bind('click', removeFav);
+
+  $('.add-product-cart').each(function() {
+    $(this).click(function(){
+      var id = $(this).attr('data');
+      $.ajax({
+        url: '/cart/' + id,
+        data: {
+          product_id: id
+        },
+        method: 'POST',
+        success: function(result){
+          $('.cart-head').text('  (' + result + ')');
+        }
+      });
+    });
+  });
 });
+
 function addFav(){
   var product_id = $('.favorite-product').attr('data')
   $.ajax({
