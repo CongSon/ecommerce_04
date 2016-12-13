@@ -17,12 +17,20 @@
       <% end %>
 
       <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, class: "form-control" %>
+      </div>
+      <div class="field">
         <%= f.label :password %>
         <i>(<%= t ".leave_blank" %>)</i><br />
         <%= f.password_field :password, autocomplete: "off",
           class: "form-control" %>
         <% if @minimum_password_length %>
-          <br />
           <em><%= @minimum_password_length %> <%= t ".characters_min" %></em>
         <% end %>
       </div>
@@ -46,4 +54,3 @@
     <% end %>
   </div>
 </section>
-

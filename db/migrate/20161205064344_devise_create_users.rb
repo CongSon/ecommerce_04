@@ -6,7 +6,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :name
       t.string   :phone
-      t.boolean  :gender
       t.string   :avatar
       t.integer  :role
       t.string   :reset_password_token

@@ -1,6 +1,7 @@
 require "common"
 class User < ApplicationRecord
   include SharedMethods
+
   has_many :comments
   has_many :orders
   has_many :suggested_products

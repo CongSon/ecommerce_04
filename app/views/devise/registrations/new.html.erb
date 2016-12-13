@@ -11,6 +11,16 @@
       </div>
 
       <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, class: "form-control" %>
+      </div>
+
+      <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> <%= t ".characters_min" %>)</em>
