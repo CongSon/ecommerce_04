@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   has_many :comments
-  has_many :favorites
   has_many :orders
   has_many :suggested_products
+  has_many :favorites
+  has_many :favorite_products, through: :favorites, source: :favorited,
+    source_type: "Product"
   before_save :init_role
 
   ratyrate_rater

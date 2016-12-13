@@ -7,7 +7,6 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :specifications, dependent: :destroy, inverse_of: :product
   has_many :comments
-  has_many :favorites
   has_many :order_details
 
   ratyrate_rateable "quality"
