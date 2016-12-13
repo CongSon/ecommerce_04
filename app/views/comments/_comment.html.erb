@@ -1,0 +1,20 @@
+<li class="item-comment" style="list-style: none">
+  <div class="row">
+    <div class="avatar col-md-2">
+      <%= image_tag comment.user.avatar? ?
+        comment.user.avatar : Settings.image, class: "img-responsive" %>
+    </div>
+    <div class="col-md-9 right-comment">
+      <div class="row">
+        <div class="info-comment">
+          <%= comment.user.name %>: <%= comment.content %>
+          <p>
+            <%= t ".comment_at" %> <%= time_ago_in_words(comment.created_at) %>
+            <%= t ".ago" %>
+          </p>
+        </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</li>

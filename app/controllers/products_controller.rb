@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     end
     session[:recent].push @product.id
     @specifications = @product.specifications
+    @comments = @product.comments.newest
   end
 
   private
