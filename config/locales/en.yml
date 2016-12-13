@@ -47,6 +47,7 @@ en:
       settings: "Settings"
       log_out: "Log out"
       sign_in: "Sign in "
+      history: "Order history"
   static_pages:
     home:
       welcome_statement: "Welcome to Framgia Ecommerce_04 System!"
@@ -201,6 +202,14 @@ en:
       customer_info: "Customer Information"
       checkout: "Checkout"
       total: "Total:"
+    index:
+      name: "Customer: %{name}"
+      status: "Status"
+      total_pay: "Total pay"
+      shipping_address: "Shipping address"
+      phone: "Phone"
+      bill_code: "Bill code"
+      create_at: "Date"
   cart:
     index:
       your_cart: "Your cart"

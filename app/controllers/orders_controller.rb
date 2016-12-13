@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_session_cart, :load_user, :load_order
+  before_action :authenticate_user!, :load_user
+  before_action :load_session_cart, :load_order, only: [:new, :create]
+
+  def index
+    @orders = current_user.orders.order(created_at: :DESC).page params[:page]
+  end
 
   def new
     @product_carts = @session_cart.map {|id, quantity|
