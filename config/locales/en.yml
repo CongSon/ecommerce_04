@@ -216,6 +216,7 @@ en:
       product_for_sale: "Products for sale"
       new_products: "New products"
       hot_products: "Hot products"
+      recent_view: "Recent views"
     product:
       price: "price"
       add_to_cart: "Add to cart"
