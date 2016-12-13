@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :products
-  resources :orders, only: [:new, :create, :show]
+  resources :orders
   resources :suggested_products
   resources :categories, only: :show
   resources :favorite_products, only: [:create, :destroy]

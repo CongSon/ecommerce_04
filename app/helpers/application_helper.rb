@@ -60,6 +60,10 @@ module ApplicationHelper
     @favorite_div
   end
 
+  def convert_datetime date
+    date.to_formatted_s(:long)
+  end
+
   private
   def tree categories, left = 0, right = nil, depth = -1
     @tree += "<ul class='dropdown-menu'>" if left == 0 && right == nil &&
