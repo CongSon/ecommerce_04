@@ -1,59 +1,61 @@
-<h3 class="text-center"><%= t ".your_cart" %></h3>
-<div class="row">
-  <table class="col-xs-6 col-xs-offset-3">
-    <thead>
-      <tr class="row">
-        <th class="col-md-1"><%= t ".name" %></th>
-        <th class="col-md-3"><%= t ".description" %></th>
-        <th class="col-md-1"><%= t ".price" %></th>
-        <th class="col-md-3"><%= t ".image" %></th>
-        <th class="col-md-1"><%= t ".quantity" %></th>
-        <th class="col-md-1"><%= t ".amount" %></th>
-        <th class="col-md-2"><%= t ".remove" %></th>
-      </tr>
-    </thead>
-    <% @product_carts.each do |product, quantity| %>
-      <% unless product.nil? %>
+<div class="container main">
+  <h3 class="text-center head"><%= t ".your_cart" %></h3>
+  <div class="row">
+    <table class="col-xs-8 col-xs-offset-2 table-cart">
+      <thead>
         <tr class="row">
-          <td class="col-md-1">
-            <%= link_to product.name, product_path(product) %></td>
-          <td class="col-md-3"><%= truncate(product.description, length: Settings.cart.length) %></td>
-          <td class="col-md-1">
-            <p id="price-<%= product.id %>">
-              <%= get_real_product_price product, Time.now %>
-            </p>
-          </td>
-          <td class="col-md-3">
-          </td>
-          <td class="col-md-3">
-            <input type="number" name="quantity" min="1"
-              max="<%= product.quantity %>" value="<%= quantity %>"
-              data="<%= product.id %>" class="cart-quantity"
-              id= "quantity-<%= product.id %>">
-          </td>
-          <td class="col-md-1">
-            <p id="total-<%= product.id %>">
-              <%= calc_price_of_order_detail product, quantity %>
-            </p>
-          </td>
-          <td class="col-md-1">
-            <p class="empty-one">
-              <%= link_to "", "/cart/#{product.id}/delete",
-                method: :delete, data: {confirm: t(".delete_confirm")},
-                class: "btn btn-danger fa fa-trash-o" %>
-            </p>
-          </td>
+          <th class="col-md-1"><%= t ".name" %></th>
+          <th class="col-md-3"><%= t ".description" %></th>
+          <th class="col-md-1"><%= t ".price" %>($)</th>
+          <th class="col-md-3"><%= t ".image" %></th>
+          <th class="col-md-1"><%= t ".quantity" %></th>
+          <th class="col-md-1"><%= t ".amount" %></th>
+          <th class="col-md-2"><%= t ".remove" %></th>
         </tr>
+      </thead>
+      <% @product_carts.each do |product, quantity| %>
+        <% unless product.nil? %>
+          <tr class="row">
+            <td class="col-md-2">
+              <%= link_to product.name, product_path(product) %></td>
+            <td class="col-md-3"><%= truncate(product.description, length: Settings.cart.length) %></td>
+            <td class="col-md-1 text-right">
+              <p id="price-<%= product.id %>">
+                <%= get_real_product_price product, Time.now %>
+              </p>
+            </td>
+            <td class="col-md-3">
+            </td>
+            <td class="col-md-2">
+              <input type="number" name="quantity" min="1"
+                max="<%= product.quantity %>" value="<%= quantity %>"
+                data="<%= product.id %>" class="cart-quantity form-control"
+                id= "quantity-<%= product.id %>">
+            </td>
+            <td class="col-md-1 text-right">
+              <p id="total-<%= product.id %>">
+                <%= calc_price_of_order_detail product, quantity %>
+              </p>
+            </td>
+            <td class="col-md-1">
+              <p class="empty-one">
+                <%= link_to "", "/cart/#{product.id}/delete",
+                  method: :delete, data: {confirm: t(".delete_confirm")},
+                  class: "btn btn-danger fa fa-trash-o" %>
+              </p>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
+    </table>
+  </div>
+  <div class="step-2 pull-right">
+    <% if @product_carts.size > 0 %>
+      <%= link_to t(".next"), new_order_path,
+        class: "fa fa-long-arrow-right btn btn-default", id: "update-cart" %>
+    <% else %>
+      <%= link_to t(".new_cart"), products_path,
+      class: "fa fa-long-arrow-right btn btn-default" %>
     <% end %>
-  </table>
-</div>
-<div class="step-2 pull-right">
-  <% if @product_carts.size > 0 %>
-    <%= link_to t(".next"), new_order_path,
-      class: "fa fa-long-arrow-right btn btn-default", id: "update-cart" %>
-  <% else %>
-    <%= link_to t(".new_cart"), products_path,
-    class: "fa fa-long-arrow-right btn btn-default" %>
-  <% end %>
+  </div>
 </div>

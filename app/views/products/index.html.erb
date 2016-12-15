@@ -1,4 +1,5 @@
-<section class="container-fluid">
+<%= render "layouts/slider" %>
+<section class="container list-product">
   <% if @hot_trend_products.any? %>
     <h1 class="text-center head"><%= t ".hot_products" %></h1>
     <div class="row">

@@ -1,18 +1,21 @@
-<h3 class="text-center"><%= t ".product_info" %></h3>
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <div>
-      <label><%= t ".product_name" %></label>
-      <input type="text" value="<%= @suggested_product.name %>"
-        readonly="readonly" class="form-control">
-    </div>
-    <div>
-      <label><%= t ".product_description" %></label>
-      <input type="text" value="<%= @suggested_product.description %>"
-        readonly="readonly" class="form-control">
-    </div>
-    <div class="pull-right">
-      <%= link_to "", root_path, class: "btn btn-default fa fa-check" %>
+<section class="container main">
+  <h3 class="text-center head"><%= t ".product_info" %></h3>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div>
+        <label><%= t ".product_name" %></label>
+        <input type="text" value="<%= @suggested_product.name %>"
+          readonly="readonly" class="form-control">
+      </div>
+      <div>
+        <label><%= t ".product_description" %></label>
+        <input type="text" value="<%= @suggested_product.description %>"
+          readonly="readonly" class="form-control">
+      </div>
+      <br>
+      <div class="pull-right">
+        <%= link_to "", root_path, class: "btn btn-primary fa fa-check" %>
+      </div>
     </div>
   </div>
-</div>
+</section>

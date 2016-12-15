@@ -19,7 +19,7 @@
       </div>
     <% end %>
   </div>
-  <div class="row">
+  <div class="container list-product">
     <% if @products.any? %>
       <% @products.each do |product| %>
         <%= render "products/product", product: product %>

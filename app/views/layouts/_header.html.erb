@@ -1,8 +1,6 @@
 <header class="header">
   <div class="header-limiter">
-    <h1><%= link_to t(".app_name"), root_path, id: "logo" %>
-      <span class="books"></span>
-    </h1>
+    <%= link_to "", root_path, id: "logo", class: "logo"%>
     <div class="pull-left">
       <ul>
         <li class="dropdown navc product-cate">
@@ -15,6 +13,7 @@
     </div>
     <ul>
       <% if user_signed_in? %>
+        <li><%= link_to t(".suggestion"), new_suggested_product_path  %></li>
         <li><%= link_to "", orders_path, class: "fa fa-history",
           title: t(".history"), rel: "tooltip" %></li>
         <li class="dropdown">

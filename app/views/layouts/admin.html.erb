@@ -64,8 +64,8 @@
           <ul id="main-menu" class="gui-controls">
             <li class="gui-folder">
               <%= link_to admin_charts_path do %>
-                <div class="gui-icon"><i class="fa fa-home"></i></div>
-                <span class="title"><%= t".home"%></span>
+                <div class="gui-icon"><i class="fa fa-bar-chart"></i></div>
+                <span class="title"><%= t".chart"%></span>
               <% end %>
             </li>
             <li class="gui-folder">
@@ -80,19 +80,25 @@
                 <span class="title"><%= t".products" %></span>
               <% end %>
             </li>
-            <li>
+            <li class="gui-folder">
               <%= link_to admin_users_path do %>
                 <div class="gui-icon"><i class="fa fa-users"></i></div>
                 <span class="title"><%= t".users" %></span>
               <% end %>
             </li>
-            <li>
+            <li class="gui-folder">
               <%= link_to admin_orders_path do %>
                 <div class="gui-icon"><i class="fa fa-shopping-cart"></i></div>
                 <span class="title"><%= t".orders" %></span>
               <% end %>
             </li>
-        </ul>
+            <li class="gui-folder">
+              <%= link_to admin_suggested_products_path do %>
+                <div class="gui-icon"><i class="fa fa-question"></i></div>
+                <span class="title"><%= t".suggestion" %></span>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
