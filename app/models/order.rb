@@ -1,9 +1,12 @@
 class Order < ApplicationRecord
+  before_create :validate!
   belongs_to :user
   has_many :order_details
   before_create :set_status_order, :set_bill_code
   delegate :name, to: :user, prefix: true
   enum status: [:processing, :delivering, :delivered, :cancelled]
+
+  validates :shipping_address, presence: true
 
   scope :order_in_month, -> (start_date, end_date) do
     where("date(updated_at) > '#{start_date}' AND
@@ -43,6 +46,10 @@ class Order < ApplicationRecord
     end
   end
 
+  def validate!
+    errors.add(:shipping_address, :blank, message: "cannot be nil") if shipping_address.nil?
+  end
+
   def self.to_xls(options = [])
     CSV.generate(options) do |csv|
       csv << column_names
@@ -69,6 +76,6 @@ class Order < ApplicationRecord
   end
 
   def set_bill_code
-    self[:bill_code] = Settings.bill << Time.now.strftime(Settings.bill_date)
+    self[:bill_code] = Settings.bill + Time.now.strftime(Settings.bill_date)
   end
 end
