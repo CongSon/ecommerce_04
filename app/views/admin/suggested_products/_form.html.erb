@@ -1,5 +1,5 @@
 <%= form_tag admin_suggested_product_path(product) , method: :put do %>
-  <div class="col-md-8">
+  <div class="col-md-6">
     <%= select_tag :status, options_for_select(SuggestedProduct.statuses,
       params[:status]), class: "form-control" %>
   </div>

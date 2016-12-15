@@ -1,2 +1,6 @@
-<div id="chart-report"></div>
-<div id="line-chart-report"></div>
+<div class="container-fluid">
+  <div class="container"><%= t ".today" %> : <%= Time.now.strftime(Settings.date_format) %></div>
+  <div id="chart-report"></div>
+  <div id="line-chart-report"></div>
+</div>
+

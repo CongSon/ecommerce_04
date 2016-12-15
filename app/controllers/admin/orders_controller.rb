@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @search = Order.search params[:q]
-    @orders = @search.result.page params[:page]
+    @orders = @search.result.order(created_at: :DESC).page params[:page]
     respond_to do |format|
       format.html
       format.xls {send_data @orders.to_xls(col_sep: "\t")}

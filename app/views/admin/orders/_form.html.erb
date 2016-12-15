@@ -1,5 +1,5 @@
 <%= form_tag admin_order_path(order) , method: :put do %>
-  <div class="col-md-8">
+  <div class="col-md-6">
     <%= select_tag :status, options_for_select(Order.statuses, params[:status]),
       class: "form-control" %>
   </div>
