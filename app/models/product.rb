@@ -35,9 +35,10 @@ class Product < ApplicationRecord
     end
 
     def hot_trend
+      date = Time.now - 5.day
       product_ids = "select order_details.product_id
        from order_details
-       where (julianday('now') - julianday(order_details.created_at)) < 5
+       where (date(order_details.created_at) > '#{date}')
        group by order_details.product_id
        order by sum(order_details.quantity)"
      Product.where("id IN (#{product_ids})")

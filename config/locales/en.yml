@@ -56,6 +56,14 @@ en:
       log_out: "Log out"
       sign_in: "Sign in "
       history: "Order history"
+    admin:
+      e-admin: "Administrator"
+      home: "Home"
+      categories: "Categories"
+      products: "Products"
+      orders: "Orders"
+      suggestion: "Suggestion"
+      users: "Users"
   static_pages:
     home:
       welcome_statement: "Welcome to Framgia Ecommerce_04 System!"

@@ -3,7 +3,6 @@ source "https://rubygems.org"
 
 gem "rails", "~> 5.0.0", ">= 5.0.0.1"
 
-gem "sqlite3"
 gem "kaminari"
 gem "font-awesome-rails"
 gem "i18n-js", ">= 3.0.0.rc11"
@@ -48,6 +47,7 @@ gem "ransack"
 gem "ratyrate"
 
 group :development, :test do
+  gem "sqlite3", "1.3.12"
   gem "byebug", platform: :mri
 end
 
@@ -59,3 +59,6 @@ group :development do
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem "pg", "0.18.4"
+end
