@@ -55,7 +55,7 @@ RSpec.describe Product, type: :model do
   describe "product method" do
     it "import product" do
       before = Product.all.count
-      file = File.open("/home/nguyencongson/Downloads/product.csv", "r")
+      file = File.open("/home/nguyenchithanh/Downloads/product.csv", "r")
       Product.import file
       after = Product.all.count
       expect(after).to be > before

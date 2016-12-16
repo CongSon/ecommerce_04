@@ -43,7 +43,7 @@ class User < ApplicationRecord
         user.uid = auth.uid
         user.email = auth.info.email
         user.phone = auth.info.phone
-        user.avatar = auth.info.image + "?type=large"
+        user.avatar = auth.info.image
         user.password = Devise.friendly_token[0,20]
         user.name = auth.info.name
         user.save
