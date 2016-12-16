@@ -5,7 +5,7 @@ class Admin::SuggestedProductsController < ApplicationController
 
   def index
     @search = SuggestedProduct.search params[:q]
-    @suggested_products = @search.result.page params[:page]
+    @suggested_products = @search.result.order(created_at: :DESC).page params[:page]
   end
 
   def update

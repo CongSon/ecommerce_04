@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     params[:search] ||= ""
-    @users = User.find_all_user
+    @users = User.find_all_user.order(created_at: :DESC)
       .all_users(params[:search])
       .page params[:page]
   end

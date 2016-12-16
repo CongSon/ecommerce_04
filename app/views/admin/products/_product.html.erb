@@ -15,7 +15,7 @@
   </td>
   <td class="product_name col-sm-2">
     <%= image_tag product.image? ?
-      product.image.url : Settings.product, class: "img-responsive" %>
+      product.image.url : Settings.product_img, class: "img-responsive" %>
   </td>
   <td class="col-sm-1">
     <%= link_to "", "#product-modal-#{product.id}", data: {toggle: "modal"},

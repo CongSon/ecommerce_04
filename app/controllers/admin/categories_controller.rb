@@ -6,7 +6,7 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @search = Category.search params[:q]
-    @categories = @search.result.page params[:page]
+    @categories = @search.result.order(created_at: :DESC).page params[:page]
   end
 
   def new

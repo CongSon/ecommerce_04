@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :load_session_recent_view
 
   def index
-    @hot_trend_products = Product.hot_trend
+    @hot_trend_products = Product.hot_trend.limit(Settings.product.limit)
     @newest_products = Product.order(created_at: :desc)
       .limit(Settings.product.limit)
     @recent_products = session[:recent].map{|id| Product.find_by(id: id)} if
@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     end
     session[:recent].push @product.id
     @specifications = @product.specifications
-    @comments = @product.comments.newest
+    @comments = @product.comments.newest.page params[:page]
   end
 
   private

@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
       flash[:success] = t ".orders_create_successfully"
       OrderMailer.delay.confirm_order(@order, @user)
     else
-      flash[:danger] = t ".orders_create_failed"
+      flash[:danger] = @order.errors.full_messages
     end
     redirect_to root_url
   end

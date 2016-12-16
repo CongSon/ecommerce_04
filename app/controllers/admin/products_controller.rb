@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
   def index
     @product = Product.new
     @search = Product.search params[:q]
-    @products = @search.result.page params[:page]
+    @products = @search.result.order(created_at: :DESC).page params[:page]
   end
 
   def create
