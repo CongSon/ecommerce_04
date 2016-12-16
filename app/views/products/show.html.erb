@@ -3,25 +3,24 @@
     <div class="container">
       <div class="col-sm-4">
         <%= image_tag @product.image? ?
-          @product.image.url : Settings.image, class: "img-responsive" %>
+          @product.image.url : Settings.product_img, class: "img-responsive" %>
       </div>
       <div class="col-sm-8">
         <table class="row">
-          <tr >
-            <td class="col-xs-4">
-              <%= t".name" %>
+          <tr class="divider">
+            <td class="col-xs-4 title-bold">
             </td>
             <td class="col-xs-8">
               <h1><%= @product.name %></h1>
             </td>
           </tr>
           <tr>
-            <td>
+            <td style="padding: 10px 15px">
               <%= social_share_button_tag @product.name %>
             </td>
            </tr>
            <tr>
-            <td class="col-xs-4">
+            <td class="col-xs-4 title-bold">
               <%= t".price" %>
             </td>
             <td class="col-xs-8">
@@ -32,7 +31,7 @@
           </tr>
           <% @specifications.each do |specification| %>
           <tr>
-            <td class="col-xs-4">
+            <td class="col-xs-4 title-bold">
               <%= specification.feature_type %>
             </td>
             <td  class="col-xs-8">
@@ -41,7 +40,7 @@
           </tr>
           <% end %>
           <tr>
-            <td class="col-xs-4">
+            <td class="col-xs-4 title-bold">
               <%= t".description" %>
             </td>
             <td class="col-xs-8">
@@ -51,7 +50,7 @@
         </table>
         <div class="input-group">
           <div class="input-group-btn">
-            <a id="add-cart-<%= @product.id %>" class="btn btn-sm btn-primary
+            <a id="add-cart-<%= @product.id %>" class="btn btn-sm
               fa fa-cart-arrow-down add-product-cart" data="<%= @product.id %>">
               <%= t".add_to_cart" %>
             </a>
@@ -75,9 +74,9 @@
             <div class="form-group">
               <%= f.text_area :content, class: "form-control" %>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-4 pull-right">
               <%= f.submit t(".comment"),
-                class: "btn btn-primary fa fa-comment" %>
+                class: "btn fa fa-comment" %>
             </div>
           <% end %>
         <% else %>
@@ -89,6 +88,7 @@
           <ul id="comments">
             <%= render @comments %>
           </ul>
+          <%= paginate @comments %>
         </div>
       </div>
     </div>

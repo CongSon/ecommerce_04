@@ -1,33 +1,35 @@
-<section class="container">
+<section class="container main">
   <h2 class="head"><%= t ".list_orders" %></h2>
-  <div class="col-md-4">
-    <% if @orders.any? %>
-      <p><%= t(".name", name: current_user.name) %></p>
-    <% end %>
-  </div>
-  <table class="table table-hover">
-    <thead>
-      <tr class="info row">
-        <th class="col-md-2"><%= t ".bill_code" %></th>
-        <th class="col-md-1"><%= t ".status" %></th>
-        <th class="col-md-2"><%= t ".total_pay" %></th>
-        <th class="col-md-2"><%= t ".phone" %></th>
-        <th class="col-md-3"><%= t ".shipping_address" %></th>
-        <th class="col-md-2"><%= t ".create_at" %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @orders.each do |order|%>
-        <tr class="row">
-          <td class="col-md-1"><%= order.bill_code %></td>
-          <td class="col-md-1"><%= order.status %></td>
-          <td class="col-md-2 text-right"><%= order.total_pay %></td>
-          <td class="col-md-2 text-right"><%= order.phone %></td>
-          <td class="col-md-2"><%= order.shipping_address %></td>
-          <td class="col-md-4"><%= convert_datetime order.created_at %></td>
-        </tr>
+  <div class="row">
+    <div class="col-md-3">
+      <% if @orders.any? %>
+        <p><%= t(".name", name: current_user.name) %></p>
       <% end %>
-    </tbody>
-  </table>
-  <% paginate @orders %>
+    </div>
+    <table class="table-cart col-md-9">
+      <thead>
+        <tr class="info row">
+          <th class="col-md-2"><%= t ".bill_code" %></th>
+          <th class="col-md-1"><%= t ".status" %></th>
+          <th class="col-md-2"><%= t ".total_pay" %></th>
+          <th class="col-md-2"><%= t ".phone" %></th>
+          <th class="col-md-3"><%= t ".shipping_address" %></th>
+          <th class="col-md-2"><%= t ".create_at" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order|%>
+          <tr class="row">
+            <td class="col-md-1"><%= order.bill_code %></td>
+            <td class="col-md-1"><%= order.status %></td>
+            <td class="col-md-2 text-right"><%= order.total_pay %></td>
+            <td class="col-md-2 text-right"><%= order.phone %></td>
+            <td class="col-md-2"><%= order.shipping_address %></td>
+            <td class="col-md-4"><%= convert_datetime order.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% paginate @orders %>
+  </div>
 </section>
