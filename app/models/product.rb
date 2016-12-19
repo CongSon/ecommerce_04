@@ -30,10 +30,6 @@ class Product < ApplicationRecord
   end
 
   class << self
-    def list_product
-      self.order(created_at: :ASC).includes(:category)
-    end
-
     def hot_trend
       date = Time.now - 5.day
       product_ids = "select order_details.product_id

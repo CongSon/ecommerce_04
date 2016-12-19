@@ -49,6 +49,13 @@ gem "ratyrate"
 group :development, :test do
   gem "sqlite3", "1.3.12"
   gem "byebug", platform: :mri
+  gem "factory_girl_rails"
+  gem "faker"
+  gem "rspec-rails"
+  gem "simplecov", require: false
+  gem "shoulda-matchers"
+  gem "database_cleaner"
+  gem "rails-controller-testing"
 end
 
 group :development do
