@@ -9,10 +9,6 @@ class Admin::CategoriesController < ApplicationController
     @categories = @search.result.order(created_at: :DESC).page params[:page]
   end
 
-  def new
-    @category = Category.new
-  end
-
   def create
     @category = Category.new category_params
     if @category.update_category params[:parent_id]
